@@ -2,7 +2,9 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "paths": ["./src"]
+        "paths": [
+          "./src"
+        ]
       }
     }
   },
@@ -11,6 +13,15 @@
   },
   "extends": "@pancakeswap/eslint-config-pancake",
   "rules": {
-    "no-console": ["warn", { "allow": ["info", "warn", "error"] }]
+    "no-console": [
+      "warn",
+      {
+        "allow": [
+          "info",
+          "warn",
+          "error"
+        ]
+      }
+    ]
   }
 }
