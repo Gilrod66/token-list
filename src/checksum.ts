@@ -1,4 +1,14 @@
-import { getAddress } from "@ethersproject/address";
+The token lists in this repository are generated and validated through a series of scripts and processes. Here is an overview of how they are generated and validated:
+
+* The `src/buildList.ts` file contains the `buildList` function, which generates a token list by reading the token data from JSON files in the `src/tokens` directory and applying sorting and versioning logic.
+* The `src/checksum.ts` file contains the `checksumAddresses` function, which ensures that all token addresses are checksummed correctly.
+* The `src/ci-check.ts` file contains the `ciCheck` function, which compares the source token lists in the `src/tokens` directory with the generated token lists in the `lists` directory to ensure they match.
+* The `src/fetchThirdPartyList.ts` file contains the `fetchThirdPartyList` function, which fetches token lists from third-party sources like CoinGecko and CoinMarketCap, sanitizes the data, and saves it to the `src/tokens` directory.
+* The `src/top-100.ts` file contains the `main` function, which fetches the top 100 tokens by trading volume from Bitquery, sanitizes the data, and saves it to the `src/tokens/pancakeswap-top-100.json` file.
+* The `src/utils/getTokensChainData.ts` file contains the `getTokensChainData` function, which fetches token data from the blockchain and saves it to the `src/tokens` directory.
+* The `src/buildIndex.ts` file contains the `buildIndex` function, which updates the `lists/index.html` file with the generated token lists.
+
+These scripts work together to generate and validate the token lists, ensuring that they are accurate and up-to-date. The validation process includes checksumming addresses, comparing source and generated lists, and fetching data from third-party sources and the blockchain.import { getAddress } from "@ethersproject/address";
 
 const checksumAddresses = async (listName: string): Promise<void> => {
   let badChecksumCount = 0;
